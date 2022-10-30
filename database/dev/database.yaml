@@ -1,0 +1,53 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: application-database
+  namespace: "application-dev"
+  labels:
+    verion: "8.0.31"
+    type: "sql"
+    purpose: "application-data"
+    stage: "dev"
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      version: "8.0.31"
+      type: "sql"
+      purpose: "application-data"
+      stage: "dev"
+  serviceName: "app-db-dev-svc"
+  template:
+    metadata:
+      labels:
+        version: "8.0.31"
+        type: "sql"
+        purpose: "application-data"
+        stage: "dev"
+    spec:
+      containers:
+        - name: "app-db-dev"
+          image: "mysql:8.0.31"
+          imagePullPolicy: IfNotPresent
+          ports:
+            - name: "app-db-dev-port"
+              containerPort: 3306
+              protocol: "TCP"
+          env:
+            - name: "MYSQL_USER"
+              valueFrom:
+                secretKeyRef:
+                  key: "DATABASE_USER"
+                  name: "db-dev-secrets"
+            - name: "MYSQL_PASSWORD"
+              valueFrom:
+                secretKeyRef:
+                  key: "DATABASE_PASSWORD"
+                  name: "db-dev-secrets"
+          volumeMounts:
+            - name: "db-dev-volume"
+              mountPath: "/var/lib/mysql"
+      restartPolicy: Always
+      volumes:
+        - persistentVolumeClaim:
+            claimName: "db-dev-pvc-0"
