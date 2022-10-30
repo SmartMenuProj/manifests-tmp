@@ -1,0 +1,35 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: "qr-frontend-dev"
+  namespace: "application-dev"
+  labels:
+    application: "frontend"
+    stage: "dev"
+spec:
+  replicas: 1
+  strategy:
+    rollingUpdate:
+      maxSurge: "25%"
+      maxUnavailable: "25%"
+  selector:
+    matchLabels:
+      application: "frontend"
+      stage: "dev"
+  template:
+    metadata:
+      labels:
+        application: "frontend"
+        stage: "dev"
+    spec:
+      containers:
+        - name: frontend-dev
+          image: qrsmartmenu/frontend:0.1.0-rc0
+          imagePullPolicy: IfNotPresent
+          ports:
+            - name: backend-dev-port
+              containerPort: 3000
+              protocol: "TCP"
+          env:
+            - name: BASE_URL
+              value: backend-dev-svc.application-dev.svc.cluster.local
