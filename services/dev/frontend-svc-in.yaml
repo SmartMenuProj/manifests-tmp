@@ -9,7 +9,7 @@ spec:
   type: ClusterIP
   ports:
     - port: 3000
-      targetPort: "frontend-dev-port"
+      targetPort: "frontend-port"
       protocol: "TCP"
   selector:
     application: "frontend"
