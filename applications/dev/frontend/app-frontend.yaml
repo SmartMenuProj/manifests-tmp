@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: "qr-frontend-dev"
+  name: "qr-frontend"
   namespace: "application-dev"
   labels:
     application: "frontend"
