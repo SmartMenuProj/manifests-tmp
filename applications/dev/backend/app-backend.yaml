@@ -130,8 +130,8 @@ spec:
             - name: "API_URL"
               valueFrom:
                 configMapKeyRef:
-                  key: "API_URL"
-                  name: "backend-app-dev-cm"
+                  key: "app-db-dev-svc.application-dev.svc.cluster.local"
+                  name: "db-dev-cm"
             - name: "APP_ENV"
               valueFrom:
                 configMapKeyRef:
