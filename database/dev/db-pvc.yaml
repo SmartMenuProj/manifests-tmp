@@ -9,4 +9,5 @@ spec:
   storageClassName: ""
   volumeName: "db-dev-pv-0"
   resources:
-    storage: "10Gi"
+    requests:
+      storage: 10Gi
