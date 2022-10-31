@@ -27,7 +27,7 @@ spec:
     spec:
       containers:
         - name: "app-db-dev"
-          image: "mysql:8"
+          image: "mysql:8.0"
           imagePullPolicy: IfNotPresent
           securityContext:
             runAsUser: 0
