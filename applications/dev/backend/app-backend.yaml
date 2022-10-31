@@ -28,7 +28,7 @@ spec:
           image: qrsmartmenu/backend:0.1.0-rc0
           imagePullPolicy: "IfNotPresent"
           ports:
-            - name: "backend-dev-port"
+            - name: "backend-port"
               containerPort: 3000
               protocol: "TCP"
           env:
