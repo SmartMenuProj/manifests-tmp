@@ -27,10 +27,8 @@ spec:
     spec:
       containers:
         - name: "app-db-dev"
-          image: "mysql:8.0"
+          image: "mysql:8.0.31"
           imagePullPolicy: IfNotPresent
-          securityContext:
-            runAsUser: 0
           ports:
             - name: "app-db-dev-port"
               containerPort: 3306
