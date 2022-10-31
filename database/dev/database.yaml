@@ -48,5 +48,6 @@ spec:
             - name: "db-dev-volume"
               mountPath: "/var/lib/mysql"
       volumes:
-        - persistentVolumeClaim:
+        - name: "db-dev-volume"
+          persistentVolumeClaim:
             claimName: "db-dev-pvc-0"
