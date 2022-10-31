@@ -1,0 +1,8 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: "frontend-app-dev-cm"
+  namespace: "application-dev"
+data:
+  APP_URL_INNER: frontend-dev-svc-in.application-dev.svc.cluster.local
+  APP_URL_OUTER: frontend-dev-svc-out.application-dev.svc.cluster.local

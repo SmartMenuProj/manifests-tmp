@@ -47,7 +47,6 @@ spec:
           volumeMounts:
             - name: "db-dev-volume"
               mountPath: "/var/lib/mysql"
-      restartPolicy: Always
       volumes:
         - persistentVolumeClaim:
             claimName: "db-dev-pvc-0"

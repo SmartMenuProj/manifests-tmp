@@ -10,7 +10,7 @@ spec:
       targetPort: "app-db-dev-port"
       protocol: "TCP"
   selector:
-    verion: "8.0.31"
+    version: "8.0.31"
     type: "sql"
     purpose: "application-data"
-    namespace: "dev"
+    stage: "dev"

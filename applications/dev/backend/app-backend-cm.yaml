@@ -1,0 +1,8 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: "backend-app-dev-cm"
+  namespace: "application-dev"
+data:
+  API_URL: backend-dev-svc.application-dev.svc.cluster.local
+  APP_ENV: dev #(dev  staging  prod  local)

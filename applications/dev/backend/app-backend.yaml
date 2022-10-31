@@ -22,12 +22,13 @@ spec:
         application: "backend"
         stage: "dev"
     spec:
+      restartPolicy: Always
       containers:
         - name: backend-dev
           image: qrsmartmenu/backend:0.1.0-rc0
-          imagePullPolicy: IfNotPresent
+          imagePullPolicy: "IfNotPresent"
           ports:
-            - name: backend-dev-port
+            - name: "backend-dev-port"
               containerPort: 3000
               protocol: "TCP"
           env:
@@ -61,7 +62,6 @@ spec:
                 secretKeyRef:
                   key: "MAIL_FROM_ADDRESS"
                   name: "app-mailer-secrets-dev"
-
             - name: "DATABASE_HOST"
               valueFrom:
                 configMapKeyRef:
@@ -87,7 +87,6 @@ spec:
                 configMapKeyRef:
                   key: "DATABASE_NAME"
                   name: "db-dev-cm"
-
             - name: "ADMIN_USERNAME"
               valueFrom:
                 secretKeyRef:
@@ -103,40 +102,38 @@ spec:
                 secretKeyRef:
                   key: "ADMIN_PASSWORD"
                   name: "admin-secrets-dev"
-
             - name: "JWT_USER_SECRET_KEY"
               valueFrom:
                 secretKeyRef:
                   key: "JWT_USER_SECRET_KEY"
-                  name: "jwt-secrets"
+                  name: "jwt-secrets-dev"
             - name: "JWT_ADMIN_SECRET_KEY"
               valueFrom:
                 secretKeyRef:
                   key: "JWT_ADMIN_SECRET_KEY"
-                  name: "jwt-secrets"
+                  name: "jwt-secrets-dev"
             - name: "JWT_USER_EXPIRE_TIME"
               valueFrom:
                 secretKeyRef:
                   key: "JWT_USER_EXPIRE_TIME"
-                  name: "jwt-secrets"
+                  name: "jwt-secrets-dev"
             - name: "JWT_ADMIN_EXPIRE_TIME"
               valueFrom:
                 secretKeyRef:
                   key: "JWT_ADMIN_EXPIRE_TIME"
-                  name: "jwt-secrets"
-
+                  name: "jwt-secrets-dev"
             - name: "APP_URL"
               valueFrom:
                 configMapKeyRef:
-                  key: "APP_URL"
-                  name: "app-dev-cm"
+                  key: "APP_URL_INNER"
+                  name: "frontend-app-dev-cm"
             - name: "API_URL"
               valueFrom:
                 configMapKeyRef:
                   key: "API_URL"
-                  name: "app-dev-cm"
+                  name: "backend-app-dev-cm"
             - name: "APP_ENV"
               valueFrom:
                 configMapKeyRef:
                   key: "APP_ENV"
-                  name: "app-dev-cm"
+                  name: "backend-app-dev-cm"

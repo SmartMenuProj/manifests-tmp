@@ -22,14 +22,18 @@ spec:
         application: "frontend"
         stage: "dev"
     spec:
+      restartPolicy: Always
       containers:
         - name: frontend-dev
           image: qrsmartmenu/frontend:0.1.0-rc0
           imagePullPolicy: IfNotPresent
           ports:
-            - name: backend-dev-port
+            - name: frontend-dev-port
               containerPort: 3000
               protocol: "TCP"
           env:
             - name: BASE_URL
-              value: backend-dev-svc.application-dev.svc.cluster.local
+              valueFrom:
+                configMapKeyRef:
+                  key: "API_URL"
+                  name: "backend-app-dev-cm"

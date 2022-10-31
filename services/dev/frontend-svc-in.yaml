@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: "frontend-dev-svc-in"
+  namespace: "application-dev"
+  labels:
+    address: "inner"
+spec:
+  type: ClusterIP
+  ports:
+    - port: 3000
+      targetPort: "frontend-dev-port"
+      protocol: "TCP"
+  selector:
+    application: "frontend"
+    stage: "dev"
