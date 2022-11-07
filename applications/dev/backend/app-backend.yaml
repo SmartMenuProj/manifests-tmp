@@ -25,10 +25,10 @@ spec:
       restartPolicy: Always
       containers:
         - name: backend-dev
-          image: qrsmartmenu/backend:0.1.0-rc1
+          image: qrsmartmenu/backend:0.1.0-rc3
           imagePullPolicy: "IfNotPresent"
           ports:
-            - name: "backend-port"
+            - name: "backend-dev-port"
               containerPort: 3000
               protocol: "TCP"
           env:
@@ -137,3 +137,23 @@ spec:
                 configMapKeyRef:
                   key: "APP_ENV"
                   name: "backend-app-dev-cm"
+            - name: "GCP_BUCKET"
+              valueFrom:
+                configMapKeyRef:
+                  key: "GCP_BUCKET"
+                  name: "gcp-service-account"
+            - name: "GPC_PROJECT_ID"
+              valueFrom:
+                configMapKeyRef:
+                  key: "GPC_PROJECT_ID"
+                  name: "gcp-service-account"
+            - name: "GCP_CLIENT_EMAIL"
+              valueFrom:
+                configMapKeyRef:
+                  key: "GCP_CLIENT_EMAIL"
+                  name: "gcp-service-account"
+            - name: "GCP_PRIVATE_KEY"
+              valueFrom:
+                configMapKeyRef:
+                  key: "GCP_PRIVATE_KEY"
+                  name: "gcp-service-account"
