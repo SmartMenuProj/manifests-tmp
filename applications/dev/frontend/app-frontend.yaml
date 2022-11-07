@@ -25,10 +25,10 @@ spec:
       restartPolicy: Always
       containers:
         - name: frontend-dev
-          image: qrsmartmenu/frontend:0.1.0-rc0
+          image: qrsmartmenu/frontend:0.1.0-rc2
           imagePullPolicy: IfNotPresent
           ports:
-            - name: frontend-dev-port
+            - name: frontend-port
               containerPort: 3000
               protocol: "TCP"
           env:

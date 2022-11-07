@@ -4,10 +4,10 @@ metadata:
   name: "backend-dev-svc"
   namespace: "application-dev"
 spec:
-  type: ClusterIP
+  type: LoadBalancer
   ports:
     - port: 3000
-      targetPort: "backend-dev-port"
+      targetPort: "backend-port"
       protocol: "TCP"
   selector:
     application: "backend"

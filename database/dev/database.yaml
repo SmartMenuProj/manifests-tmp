@@ -34,19 +34,20 @@ spec:
               containerPort: 3306
               protocol: "TCP"
           env:
-            - name: "MYSQL_USER"
-              valueFrom:
-                secretKeyRef:
-                  key: "DATABASE_USER"
-                  name: "db-dev-secrets"
-            - name: "MYSQL_PASSWORD"
+            - name: "MYSQL_ROOT_PASSWORD"
               valueFrom:
                 secretKeyRef:
                   key: "DATABASE_PASSWORD"
                   name: "db-dev-secrets"
+            - name: "MYSQL_DATABASE"
+              valueFrom:
+                configMapKeyRef:
+                  key: "DATABASE_NAME"
+                  name: "db-dev-cm"
           volumeMounts:
             - name: "db-dev-volume"
               mountPath: "/var/lib/mysql"
       volumes:
-        - persistentVolumeClaim:
+        - name: "db-dev-volume"
+          persistentVolumeClaim:
             claimName: "db-dev-pvc-0"
