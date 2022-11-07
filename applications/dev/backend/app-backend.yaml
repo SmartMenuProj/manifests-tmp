@@ -139,21 +139,21 @@ spec:
                   name: "backend-app-dev-cm"
             - name: "GCP_BUCKET"
               valueFrom:
-                configMapKeyRef:
+                secretKeyRef:
                   key: "GCP_BUCKET"
                   name: "gcp-service-account"
             - name: "GPC_PROJECT_ID"
               valueFrom:
-                configMapKeyRef:
+                secretKeyRef:
                   key: "GPC_PROJECT_ID"
                   name: "gcp-service-account"
             - name: "GCP_CLIENT_EMAIL"
               valueFrom:
-                configMapKeyRef:
+                secretKeyRef:
                   key: "GCP_CLIENT_EMAIL"
                   name: "gcp-service-account"
             - name: "GCP_PRIVATE_KEY"
               valueFrom:
-                configMapKeyRef:
+                secretKeyRef:
                   key: "GCP_PRIVATE_KEY"
                   name: "gcp-service-account"
