@@ -1,0 +1,63 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: db-client
+  namespace: application-dev
+  labels:
+    app: db-client
+spec:
+  selector:
+    matchLabels:
+      app: db-client
+  template:
+    metadata:
+      labels:
+        app: db-client
+    spec:
+      containers:
+        - name: db-client
+          image: phpmyadmin
+          imagePullPolicy: IfNotPresent
+          ports:
+            - name: db-client-port
+              containerPort: 80
+              protocol: "TCP"
+          env:
+            - name: PMA_HOST
+              valueFrom:
+                configMapKeyRef:
+                  key: "DATABASE_HOST"
+                  name: "db-dev-cm"
+            - name: PMA_PORT
+              valueFrom:
+                configMapKeyRef:
+                  key: "DATABASE_PORT"
+                  name: "db-dev-cm"
+            - name: PMA_USER
+              valueFrom:
+                secretKeyRef:
+                  key: "DATABASE_USER"
+                  name: "db-dev-secrets"
+            - name: PMA_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  key: "DATABASE_PASSWORD"
+                  name: "db-dev-secrets"
+          readinessProbe:
+            httpGet:
+              path: "/"
+              port: 80
+            initialDelaySeconds: 0
+            failureThreshold: 1
+            successThreshold: 1
+            timeoutSeconds: 5
+            periodSeconds: 5
+          livenessProbe:
+            httpGet:
+              path: "/"
+              port: 80
+            initialDelaySeconds: 0
+            failureThreshold: 1
+            successThreshold: 1
+            timeoutSeconds: 5
+            periodSeconds: 5

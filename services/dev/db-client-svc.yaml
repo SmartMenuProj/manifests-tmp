@@ -10,4 +10,4 @@ spec:
       targetPort: db-client-port
       protocol: "TCP"
   selector:
-    app: adminer
+    app: db-client
