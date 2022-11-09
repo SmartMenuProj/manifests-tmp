@@ -25,21 +25,3 @@ spec:
           env:
             - name: ADMINER_DESIGN
               value: "pepa-linha-dark"
-          readinessProbe:
-            httpGet:
-              path: "/"
-              port: 8080
-            successThreshold: 1
-            failureThreshold: 1
-            initialDelaySeconds: 0
-            periodSeconds: 5
-            timeoutSeconds: 5
-          livenessProbe:
-            httpGet:
-              path: "/"
-              port: 8080
-            successThreshold: 1
-            failureThreshold: 1
-            initialDelaySeconds: 0
-            periodSeconds: 5
-            timeoutSeconds: 5
