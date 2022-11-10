@@ -4,4 +4,4 @@ metadata:
   name: "frontend-app-dev-cm"
   namespace: "application-dev"
 data:
-  APP_URL: frontend-dev-svc-out.application-dev.svc.cluster.local
+  APP_URL: frontend-dev-svc.application-dev.svc.cluster.local
