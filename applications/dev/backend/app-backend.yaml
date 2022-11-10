@@ -133,10 +133,7 @@ spec:
                   key: "API_URL"
                   name: "backend-app-dev-cm"
             - name: "APP_ENV"
-              valueFrom:
-                configMapKeyRef:
-                  key: "APP_ENV"
-                  name: "backend-app-dev-cm"
+              value: "35.198.146.230"
             - name: "GCP_BUCKET"
               valueFrom:
                 secretKeyRef:
