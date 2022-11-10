@@ -123,7 +123,10 @@ spec:
                   key: "JWT_ADMIN_EXPIRE_TIME"
                   name: "jwt-secrets-dev"
             - name: "APP_URL"
-              value: "35.198.146.230"
+              valueFrom:
+                configMapKeyRef:
+                  key: "APP_URL"
+                  name: "frontend-app-dev-cm"
             - name: "API_URL"
               valueFrom:
                 configMapKeyRef:
