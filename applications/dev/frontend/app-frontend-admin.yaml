@@ -19,7 +19,7 @@ spec:
   template:
     metadata:
       labels:
-        application: "frontend"
+        application: "frontend-admin"
         stage: "dev"
     spec:
       restartPolicy: Always
