@@ -32,36 +32,6 @@ spec:
               containerPort: 3000
               protocol: "TCP"
           env:
-            - name: "MAIL_MAILER"
-              valueFrom:
-                secretKeyRef:
-                  key: "MAIL_MAILER"
-                  name: "app-mailer-secrets-dev"
-            - name: "MAIL_HOST"
-              valueFrom:
-                secretKeyRef:
-                  key: "MAIL_HOST"
-                  name: "app-mailer-secrets-dev"
-            - name: "MAIL_PORT"
-              valueFrom:
-                secretKeyRef:
-                  key: "MAIL_PORT"
-                  name: "app-mailer-secrets-dev"
-            - name: "MAIL_USERNAME"
-              valueFrom:
-                secretKeyRef:
-                  key: "MAIL_USERNAME"
-                  name: "app-mailer-secrets-dev"
-            - name: "MAIL_PASSWORD"
-              valueFrom:
-                secretKeyRef:
-                  key: "MAIL_PASSWORD"
-                  name: "app-mailer-secrets-dev"
-            - name: "MAIL_FROM_ADDRESS"
-              valueFrom:
-                secretKeyRef:
-                  key: "MAIL_FROM_ADDRESS"
-                  name: "app-mailer-secrets-dev"
             - name: "DATABASE_HOST"
               valueFrom:
                 configMapKeyRef:
@@ -72,56 +42,11 @@ spec:
                 configMapKeyRef:
                   key: "DATABASE_PORT"
                   name: "db-dev-cm"
-            - name: "DATABASE_USER"
-              valueFrom:
-                secretKeyRef:
-                  key: "DATABASE_USER"
-                  name: "db-dev-secrets"
-            - name: "DATABASE_PASSWORD"
-              valueFrom:
-                secretKeyRef:
-                  key: "DATABASE_PASSWORD"
-                  name: "db-dev-secrets"
             - name: "DATABASE_NAME"
               valueFrom:
                 configMapKeyRef:
                   key: "DATABASE_NAME"
                   name: "db-dev-cm"
-            - name: "ADMIN_USERNAME"
-              valueFrom:
-                secretKeyRef:
-                  key: "ADMIN_USERNAME"
-                  name: "admin-secrets-dev"
-            - name: "ADMIN_EMAIL"
-              valueFrom:
-                secretKeyRef:
-                  key: "ADMIN_EMAIL"
-                  name: "admin-secrets-dev"
-            - name: "ADMIN_PASSWORD"
-              valueFrom:
-                secretKeyRef:
-                  key: "ADMIN_PASSWORD"
-                  name: "admin-secrets-dev"
-            - name: "JWT_USER_SECRET_KEY"
-              valueFrom:
-                secretKeyRef:
-                  key: "JWT_USER_SECRET_KEY"
-                  name: "jwt-secrets-dev"
-            - name: "JWT_ADMIN_SECRET_KEY"
-              valueFrom:
-                secretKeyRef:
-                  key: "JWT_ADMIN_SECRET_KEY"
-                  name: "jwt-secrets-dev"
-            - name: "JWT_USER_EXPIRE_TIME"
-              valueFrom:
-                secretKeyRef:
-                  key: "JWT_USER_EXPIRE_TIME"
-                  name: "jwt-secrets-dev"
-            - name: "JWT_ADMIN_EXPIRE_TIME"
-              valueFrom:
-                secretKeyRef:
-                  key: "JWT_ADMIN_EXPIRE_TIME"
-                  name: "jwt-secrets-dev"
             - name: "APP_URL"
               valueFrom:
                 configMapKeyRef:
@@ -137,23 +62,3 @@ spec:
                 configMapKeyRef:
                   key: "APP_ENV"
                   name: "backend-app-dev-cm"
-            - name: "GCP_BUCKET"
-              valueFrom:
-                secretKeyRef:
-                  key: "GCP_BUCKET"
-                  name: "gcp-service-account"
-            - name: "GPC_PROJECT_ID"
-              valueFrom:
-                secretKeyRef:
-                  key: "GPC_PROJECT_ID"
-                  name: "gcp-service-account"
-            - name: "GCP_CLIENT_EMAIL"
-              valueFrom:
-                secretKeyRef:
-                  key: "GCP_CLIENT_EMAIL"
-                  name: "gcp-service-account"
-            - name: "GCP_PRIVATE_KEY"
-              valueFrom:
-                secretKeyRef:
-                  key: "GCP_PRIVATE_KEY"
-                  name: "gcp-service-account"
