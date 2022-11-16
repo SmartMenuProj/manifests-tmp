@@ -7,7 +7,7 @@ spec:
   accessModes:
     - "ReadWriteMany"
   storageClassName: ""
-  volumeName: "db-dev-pv-0"
+  volumeName: "db-dev-pv-1"
   resources:
     requests:
       storage: 10Gi
