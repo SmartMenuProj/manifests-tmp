@@ -4,4 +4,4 @@ metadata:
   name: "frontend-app-dev-cm"
   namespace: "application-dev"
 data:
-  APP_URL: "http://dev.smartmenu.gymops.click"
+  APP_URL: "http://35.198.146.230"
