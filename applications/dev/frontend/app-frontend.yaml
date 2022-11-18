@@ -32,7 +32,7 @@ spec:
               containerPort: 3000
               protocol: "TCP"
           env:
-            - name: BASE_URL
+            - name: REACT_APP_BASE_URL
               valueFrom:
                 configMapKeyRef:
                   key: "API_URL"
