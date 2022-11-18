@@ -4,5 +4,5 @@ metadata:
   name: "backend-app-dev-cm"
   namespace: "application-dev"
 data:
-  API_URL: "http://backend-dev-svc.application-dev.svc.cluster.local"
+  API_URL: "http://backend-dev-svc.application-dev.svc.cluster.local:3000"
   APP_ENV: dev #(dev  staging  prod  local)
