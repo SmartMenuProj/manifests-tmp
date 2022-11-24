@@ -1,5 +1,5 @@
-apiVersion: apps/v1
-kind: Deployment
+apiVersion: argoproj.io/v1alpha1
+kind: Rollout
 metadata:
   name: "qr-frontend-admin-dev"
   namespace: "application-dev"
@@ -9,9 +9,12 @@ metadata:
 spec:
   replicas: 1
   strategy:
-    rollingUpdate:
-      maxSurge: "25%"
-      maxUnavailable: "25%"
+    blueGreen:
+      autoPromotionEnabled: true
+      autoPromotionSeconds: 30
+      maxUnavailable: 1
+      activeService: "frontend-admin-dev-svc"
+      scaleDownDelaySeconds: 10
   selector:
     matchLabels:
       application: "frontend-admin"
