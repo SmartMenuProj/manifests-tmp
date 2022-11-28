@@ -28,7 +28,7 @@ spec:
       restartPolicy: Always
       containers:
         - name: frontend-dev
-          image: qrsmartmenu/frontend:0.1.0-rc16
+          image: qrsmartmenu/frontend:0.1.0-rc17
           imagePullPolicy: IfNotPresent
           ports:
             - name: frontend-port
