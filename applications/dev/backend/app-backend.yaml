@@ -11,7 +11,7 @@ spec:
   strategy:
     blueGreen:
       autoPromotionEnabled: true
-      autoPromotionSeconds: 20
+      autoPromotionSeconds: 120
       maxUnavailable: 1
       activeService: "backend-dev-svc"
       scaleDownDelaySeconds: 10
