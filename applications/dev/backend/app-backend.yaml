@@ -11,7 +11,7 @@ spec:
   strategy:
     blueGreen:
       autoPromotionEnabled: true
-      autoPromotionSeconds: 120
+      autoPromotionSeconds: 180
       maxUnavailable: 1
       activeService: "backend-dev-svc"
       scaleDownDelaySeconds: 10
@@ -28,7 +28,7 @@ spec:
       restartPolicy: Always
       containers:
         - name: backend-dev
-          image: qrsmartmenu/backend:0.1.0-rc16
+          image: qrsmartmenu/backend:0.1.0-rc17
           imagePullPolicy: "IfNotPresent"
           ports:
             - name: "backend-port"
