@@ -28,7 +28,7 @@ spec:
       restartPolicy: Always
       containers:
         - name: backend-dev
-          image: qrsmartmenu/backend:0.1.0-rc21
+          image: qrsmartmenu/backend:0.1.0-rc22
           imagePullPolicy: "IfNotPresent"
           ports:
             - name: "backend-port"
