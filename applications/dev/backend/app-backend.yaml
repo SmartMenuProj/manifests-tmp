@@ -34,10 +34,6 @@ spec:
             - name: "backend-port"
               containerPort: 3000
               protocol: "TCP"
-          resources:
-            limits:
-              memory: 500Mi
-              cpu: 0.3
           env:
             - name: "DATABASE_HOST"
               valueFrom:
