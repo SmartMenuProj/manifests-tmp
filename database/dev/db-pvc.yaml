@@ -1,6 +1,20 @@
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
+  name: "db-dev-pvc-1"
+  namespace: "application-dev"
+spec:
+  accessModes:
+    - "ReadWriteMany"
+  storageClassName: ""
+  volumeName: "db-dev-pv-1"
+  resources:
+    requests:
+      storage: 10Gi
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
   name: "db-dev-pvc-0"
   namespace: "application-dev"
 spec:
