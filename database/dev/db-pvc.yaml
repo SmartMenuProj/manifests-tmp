@@ -5,9 +5,9 @@ metadata:
   namespace: "application-dev"
 spec:
   accessModes:
-    - "ReadWriteMany"
-  storageClassName: ""
+    - "ReadWriteOnce"
+  storageClassName: "standard-rwo"
   volumeName: "db-dev-pv-1"
   resources:
     requests:
-      storage: 10Gi
+      storage: 5Gi
