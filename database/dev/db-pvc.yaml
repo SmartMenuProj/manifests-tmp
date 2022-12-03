@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: "db-dev-pvc-1"
+  name: "db-dev-pvc-0"
   namespace: "application-dev"
 spec:
   accessModes:
@@ -15,7 +15,7 @@ spec:
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: "db-dev-pvc-0"
+  name: "db-dev-pvc-2"
   namespace: "application-dev"
 spec:
   accessModes:
