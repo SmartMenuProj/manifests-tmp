@@ -15,7 +15,7 @@ spec:
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: "db-dev-pvc-2"
+  name: "demo-pvc"
   namespace: "application-dev"
 spec:
   accessModes:
@@ -23,4 +23,4 @@ spec:
   storageClassName: "standard-rwo"
   resources:
     requests:
-      storage: 10Gi
+      storage: 30Gi
