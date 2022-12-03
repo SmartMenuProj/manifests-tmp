@@ -50,4 +50,4 @@ spec:
       volumes:
         - name: "db-dev-volume"
           persistentVolumeClaim:
-            claimName: "db-dev-pvc"
+            claimName: "database-dev-pvc"
