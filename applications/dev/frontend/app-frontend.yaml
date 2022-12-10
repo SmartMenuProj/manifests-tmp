@@ -1,42 +1,42 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Rollout
 metadata:
-  name: "qr-frontend-dev"
-  namespace: "application-dev"
   labels:
-    application: "frontend"
-    stage: "dev"
+    application: frontend
+    stage: dev
+  name: qr-frontend-dev
+  namespace: application-dev
 spec:
   replicas: 2
+  selector:
+    matchLabels:
+      application: frontend
+      stage: dev
   strategy:
     blueGreen:
+      activeService: frontend-dev-svc
       autoPromotionEnabled: true
       autoPromotionSeconds: 120
       maxUnavailable: 1
-      activeService: "frontend-dev-svc"
       scaleDownDelaySeconds: 10
-  selector:
-    matchLabels:
-      application: "frontend"
-      stage: "dev"
   template:
     metadata:
       labels:
-        application: "frontend"
-        stage: "dev"
+        application: frontend
+        stage: dev
     spec:
-      restartPolicy: Always
       containers:
-        - name: frontend-dev
-          image: qrsmartmenu/frontend:0.1.0-rc21
-          imagePullPolicy: IfNotPresent
-          ports:
-            - name: frontend-port
-              containerPort: 3000
-              protocol: "TCP"
-          env:
-            - name: REACT_APP_BASE_URL
-              valueFrom:
-                configMapKeyRef:
-                  key: "API_URL"
-                  name: "backend-app-dev-cm"
+      - env:
+        - name: REACT_APP_BASE_URL
+          valueFrom:
+            configMapKeyRef:
+              key: API_URL
+              name: backend-app-dev-cm
+        image: qrsmartmenu/frontend:0.1.0-rc24
+        imagePullPolicy: IfNotPresent
+        name: frontend-dev
+        ports:
+        - containerPort: 3000
+          name: frontend-port
+          protocol: TCP
+      restartPolicy: Always
