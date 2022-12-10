@@ -7,7 +7,7 @@ metadata:
   name: qr-frontend-dev
   namespace: application-dev
 spec:
-  replicas: 2
+  replicas: 1
   selector:
     matchLabels:
       application: frontend
