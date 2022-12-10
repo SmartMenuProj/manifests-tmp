@@ -1,42 +1,42 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Rollout
 metadata:
-  name: "qr-frontend-admin-dev"
-  namespace: "application-dev"
   labels:
-    application: "frontend"
-    stage: "dev"
+    application: frontend
+    stage: dev
+  name: qr-frontend-admin-dev
+  namespace: application-dev
 spec:
   replicas: 1
+  selector:
+    matchLabels:
+      application: frontend-admin
+      stage: dev
   strategy:
     blueGreen:
+      activeService: frontend-admin-dev-svc
       autoPromotionEnabled: true
       autoPromotionSeconds: 30
       maxUnavailable: 1
-      activeService: "frontend-admin-dev-svc"
       scaleDownDelaySeconds: 10
-  selector:
-    matchLabels:
-      application: "frontend-admin"
-      stage: "dev"
   template:
     metadata:
       labels:
-        application: "frontend-admin"
-        stage: "dev"
+        application: frontend-admin
+        stage: dev
     spec:
-      restartPolicy: Always
       containers:
-        - name: frontend-dev
-          image: qrsmartmenu/frontend-admin:0.1.0-rc4
-          imagePullPolicy: IfNotPresent
-          ports:
-            - name: front-adm-port
-              containerPort: 3000
-              protocol: "TCP"
-          env:
-            - name: REACT_APP_BASE_URL
-              valueFrom:
-                configMapKeyRef:
-                  key: "API_URL"
-                  name: "backend-app-dev-cm"
+      - env:
+        - name: REACT_APP_BASE_URL
+          valueFrom:
+            configMapKeyRef:
+              key: API_URL
+              name: backend-app-dev-cm
+        image: qrsmartmenu/frontend-admin:0.1.0-rc5
+        imagePullPolicy: IfNotPresent
+        name: frontend-dev
+        ports:
+        - containerPort: 3000
+          name: front-adm-port
+          protocol: TCP
+      restartPolicy: Always
