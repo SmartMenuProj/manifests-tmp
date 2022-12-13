@@ -8,8 +8,7 @@ spec:
     - {}
   ingress:
     - from:
-        - ipBlock:
-            cidr: "0.0.0.0/0"
+        - ipBlock: {}
     - ports:
         - port: 3306
           protocol: "TCP"
