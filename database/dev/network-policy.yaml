@@ -1,0 +1,28 @@
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: db-network-policy-dev
+  namespace: dev
+spec:
+  egress: 
+    - {}
+  ingress:
+    - from:
+        - ipBlock:
+            cidr: "0.0.0.0/0"
+        - podSelector:
+            matchLabels:
+              application: backend
+              stage: dev
+    - ports:
+        - port: 3306
+          protocol: "TCP"
+  policyTypes:
+    - Ingress
+    - Egress
+  podSelector:
+    matchLabels:
+      verion: "8.0.31"
+      type: "sql"
+      purpose: "application-data"
+      stage: "dev"
