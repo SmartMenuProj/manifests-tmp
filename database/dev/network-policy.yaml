@@ -10,10 +10,6 @@ spec:
     - from:
         - ipBlock:
             cidr: "0.0.0.0/0"
-        - podSelector:
-            matchLabels:
-              application: backend
-              stage: dev
     - ports:
         - port: 3306
           protocol: "TCP"
