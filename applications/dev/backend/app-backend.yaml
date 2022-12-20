@@ -57,7 +57,7 @@ spec:
             configMapKeyRef:
               key: APP_ENV
               name: backend-app-dev-cm
-        image: qrsmartmenu/backend:0.1.0-rc46
+        image: qrsmartmenu/backend:0.1.0-rc45
         imagePullPolicy: IfNotPresent
         name: backend-dev
         ports:
