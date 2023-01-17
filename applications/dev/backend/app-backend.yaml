@@ -30,6 +30,24 @@ spec:
         - name: backend-dev
           image: qrsmartmenu/backend:0.1.0-rc35
           imagePullPolicy: "IfNotPresent"
+          readinessProbe:
+            httpGet: 
+              path: /
+              port: 3000
+            failureThreshold: 1
+            initialDelaySeconds: 0
+            periodSeconds: 5
+            successThreshold: 2
+            terminationGracePeriodSeconds: 1
+          livenessProbe:
+            httpGet:
+              path: /
+              port: 3000
+            failureThreshold: 2
+            initialDelaySeconds: 180
+            periodSeconds: 10
+            successThreshold: 1
+            terminationGracePeriodSeconds: 1
           ports:
             - name: "backend-port"
               containerPort: 3000
