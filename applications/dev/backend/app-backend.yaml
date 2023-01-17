@@ -65,7 +65,7 @@ spec:
           initialDelaySeconds: 0
           periodSeconds: 5
           successThreshold: 2
-          terminationGracePeriodSeconds: 1
+          terminationGracePeriodSeconds: 2
         livenessProbe:
           httpGet:
             path: /
@@ -74,7 +74,7 @@ spec:
           initialDelaySeconds: 180
           periodSeconds: 10
           successThreshold: 1
-          terminationGracePeriodSeconds: 1
+          terminationGracePeriodSeconds: 2
         image: qrsmartmenu/backend:0.1.0-rc46
         imagePullPolicy: IfNotPresent
         name: backend-dev
