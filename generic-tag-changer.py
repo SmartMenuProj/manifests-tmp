@@ -26,4 +26,6 @@ def change_deployment_tag(file, tag):
 def main(file, tag):
     change_deployment_tag(file, tag)
 
+#sys.argv[1] = file
+#sys.argv[2] = tag
 main(sys.argv[1], sys.argv[2])

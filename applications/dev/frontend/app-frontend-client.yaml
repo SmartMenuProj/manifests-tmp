@@ -4,17 +4,17 @@ metadata:
   labels:
     application: frontend
     stage: dev
-  name: qr-frontend-admin-dev
+  name: qr-frontend-client-dev
   namespace: application-dev
 spec:
   replicas: 1
   selector:
     matchLabels:
-      application: frontend-admin
+      application: frontend-client
       stage: dev
   strategy:
     blueGreen:
-      activeService: frontend-admin-dev-svc
+      activeService: frontend-client-dev-svc
       autoPromotionEnabled: true
       autoPromotionSeconds: 30
       maxUnavailable: 1
@@ -22,7 +22,7 @@ spec:
   template:
     metadata:
       labels:
-        application: frontend-admin
+        application: frontend-client
         stage: dev
     spec:
       containers:
@@ -32,11 +32,11 @@ spec:
             configMapKeyRef:
               key: API_URL
               name: backend-app-dev-cm
-        image: qrsmartmenu/frontend-admin:0.1.0-rc6
+        image: qrsmartmenu/frontend-client:0.1.0-rc4
         imagePullPolicy: IfNotPresent
         name: frontend-dev
         ports:
         - containerPort: 3000
-          name: front-adm-port
+          name: front-cli-port
           protocol: TCP
       restartPolicy: Always
