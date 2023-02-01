@@ -5,7 +5,7 @@ metadata:
     application: backend
     stage: dev
   name: qr-backend-dev
-  namespace: application-dev
+  namespace: admins-dev
 spec:
   replicas: 1
   selector:
