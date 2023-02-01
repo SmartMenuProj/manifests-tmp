@@ -1,14 +1,14 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: "frontend-admin-dev-svc"
-  namespace: "application-dev"
+  name: "frontend-dev-svc"
+  namespace: "admins-dev"
 spec:
   type: LoadBalancer
   ports:
     - port: 80
-      targetPort: "front-adm-port"
+      targetPort: "frontend-port"
       protocol: "TCP"
   selector:
-    application: "frontend-admin"
+    application: "frontend"
     stage: "dev"

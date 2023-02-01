@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: StatefulSet
 metadata:
   name: application-database
-  namespace: "application-dev"
+  namespace: "admins-dev"
   labels:
     verion: "8.0.31"
     type: "sql"
