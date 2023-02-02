@@ -32,7 +32,7 @@ spec:
             configMapKeyRef:
               key: API_URL
               name: backend-app-dev-cm
-        image: qrsmartmenu/frontend-admin:0.1.0-rc6
+        image: qrsmartmenu/frontend-admin:0.1.0-rc10
         imagePullPolicy: IfNotPresent
         name: frontend-dev
         ports:
