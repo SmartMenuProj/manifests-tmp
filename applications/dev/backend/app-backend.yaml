@@ -57,27 +57,27 @@ spec:
             configMapKeyRef:
               key: APP_ENV
               name: backend-app-dev-cm
-        readinessProbe:
-          httpGet: 
-            path: /
-            port: 3000
-          failureThreshold: 1
-          initialDelaySeconds: 20
-          periodSeconds: 5
-          successThreshold: 2
+        image: qrsmartmenu/backend:0.1.0-rc47
+        imagePullPolicy: IfNotPresent
         livenessProbe:
+          failureThreshold: 2
           httpGet:
             path: /
             port: 3000
-          failureThreshold: 2
           initialDelaySeconds: 200
           periodSeconds: 10
           successThreshold: 1
-        image: qrsmartmenu/backend:0.1.0-rc46
-        imagePullPolicy: IfNotPresent
         name: backend-dev
         ports:
         - containerPort: 3000
           name: backend-port
           protocol: TCP
+        readinessProbe:
+          failureThreshold: 1
+          httpGet:
+            path: /
+            port: 3000
+          initialDelaySeconds: 20
+          periodSeconds: 5
+          successThreshold: 2
       restartPolicy: Always
