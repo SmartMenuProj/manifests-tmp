@@ -62,7 +62,7 @@ spec:
             secretKeyRef:
               key: DATABASE_USER
               name: db-dev-secrets
-        - name: DATABASE_USER
+        - name: DATABASE_PASSWORD
           valueFrom:
             secretKeyRef:
               key: DATABASE_PASSWORD
