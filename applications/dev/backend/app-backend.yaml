@@ -59,12 +59,12 @@ spec:
               name: backend-app-dev-cm
         - name: DATABASE_USER
           valueFrom:
-            configMapKeyRef:
+            secretKeyRef:
               key: DATABASE_USER
               name: db-dev-secrets
         - name: DATABASE_USER
           valueFrom:
-            configMapKeyRef:
+            secretKeyRef:
               key: DATABASE_PASSWORD
               name: db-dev-secrets
         image: qrsmartmenu/backend:0.1.0-rc50
