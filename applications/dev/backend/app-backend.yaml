@@ -67,7 +67,7 @@ spec:
             secretKeyRef:
               key: DATABASE_PASSWORD
               name: db-dev-secrets
-        image: qrsmartmenu/backend:0.1.0-rc51
+        image: qrsmartmenu/backend:0.1.0-rc52
         imagePullPolicy: IfNotPresent
         livenessProbe:
           failureThreshold: 2
