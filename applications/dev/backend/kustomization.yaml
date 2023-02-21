@@ -1,5 +1,6 @@
 resources: 
   - app-backend.yaml
-
+  - app-backend-config-map.yaml
+  
 commonLabels:
   app: somename
