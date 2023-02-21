@@ -57,27 +57,37 @@ spec:
             configMapKeyRef:
               key: APP_ENV
               name: backend-app-dev-cm
-        readinessProbe:
-          httpGet: 
-            path: /
-            port: 3000
-          failureThreshold: 1
-          initialDelaySeconds: 20
-          periodSeconds: 5
-          successThreshold: 2
+        - name: DATABASE_USER
+          valueFrom:
+            secretKeyRef:
+              key: DATABASE_USER
+              name: db-dev-secrets
+        - name: DATABASE_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              key: DATABASE_PASSWORD
+              name: db-dev-secrets
+        image: qrsmartmenu/backend:0.1.0-rc61
+        imagePullPolicy: IfNotPresent
         livenessProbe:
+          failureThreshold: 2
           httpGet:
             path: /
             port: 3000
-          failureThreshold: 2
           initialDelaySeconds: 200
           periodSeconds: 10
           successThreshold: 1
-        image: qrsmartmenu/backend:0.1.0-rc46
-        imagePullPolicy: IfNotPresent
         name: backend-dev
         ports:
         - containerPort: 3000
           name: backend-port
           protocol: TCP
+        readinessProbe:
+          failureThreshold: 1
+          httpGet:
+            path: /
+            port: 3000
+          initialDelaySeconds: 20
+          periodSeconds: 5
+          successThreshold: 2
       restartPolicy: Always
