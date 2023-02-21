@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: "backend-app-dev-admins"
+  name: "backend-app-dev-cm"
   namespace: "admins-dev"
 data:
   API_URL: "http://34.159.64.177:3000"
@@ -10,7 +10,7 @@ data:
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: "backend-app-dev-client"
+  name: "backend-app-dev-cm"
   namespace: "clients-dev"
 data:
   API_URL: "http://34.159.64.177:3000"
