@@ -1,5 +1,6 @@
 resources:
   - ../../base
+  - app-frontend-cm.yaml
 
 namespace: dev
 

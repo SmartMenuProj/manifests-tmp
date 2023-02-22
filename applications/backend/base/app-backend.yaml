@@ -24,17 +24,17 @@ spec:
           valueFrom:
             configMapKeyRef:
               key: DATABASE_HOST
-              name: db-cm
+              name: db-configs
         - name: DATABASE_PORT
           valueFrom:
             configMapKeyRef:
               key: DATABASE_PORT
-              name: db-cm
+              name: db-configs
         - name: DATABASE_NAME
           valueFrom:
             configMapKeyRef:
               key: DATABASE_NAME
-              name: db-cm
+              name: db-configs
         - name: APP_URL
           valueFrom:
             configMapKeyRef:

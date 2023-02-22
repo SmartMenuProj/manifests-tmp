@@ -35,7 +35,7 @@ spec:
               valueFrom:
                 configMapKeyRef:
                   key: DATABASE_PORT
-                  name: db-cm
+                  name: db-configs
           readinessProbe:
             httpGet:
               path: /

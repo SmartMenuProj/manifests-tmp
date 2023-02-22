@@ -1,9 +1,9 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: db-cm
+  name: db-configs
   namespace: dev
 data:
-  DATABASE_HOST: app-db-svc.dev.svc.cluster.local
-  DATABASE_PORT: 3306
-  DATABASE_NAME: qr_menu
+  DATABASE_HOST: "app-db-svc.dev.svc.cluster.local"
+  DATABASE_PORT: "3306"
+  DATABASE_NAME: "qr_menu"

@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: db-cm
+  name: db-configs
   namespace: prod
 data:
   DATABASE_HOST: app-db-svc.prod.svc.cluster.local

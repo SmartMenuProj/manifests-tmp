@@ -1,5 +1,6 @@
 resources:
   - ../../base
+  - app-backend-config-map.yaml
 
 namespace: dev
 
