@@ -1,0 +1,4 @@
+resources:
+  - app-frontend-admin.yaml
+  - app-frontend-client.yaml
+  - app-frontend-restaurant.yaml

@@ -1,6 +1,5 @@
 resources:
-  - ../../base/database.yaml
-  - ../../base/db-client.yaml
+  - ../../base
 
 namespace: dev
 
@@ -14,3 +13,7 @@ configMapGenerator:
     - DATABASE_HOST=app-db-svc.dev.svc.cluster.local
     - DATABASE_PORT=3306
     - DATABASE_NAME=qr_menu
+
+replicas:
+  - name: database
+    count: 1

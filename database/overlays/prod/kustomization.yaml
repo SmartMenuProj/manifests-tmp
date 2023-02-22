@@ -1,6 +1,5 @@
 resources:
-  - ../../base/database.yaml
-  - ../../base/db-client.yaml
+  - ../../base
 
 namespace: prod
 

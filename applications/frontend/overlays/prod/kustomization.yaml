@@ -1,8 +1,5 @@
 resources:
-  - ../../base/app-frontend-admin.yaml
-  - ../../base/app-frontend-client.yaml
-  - ../../base/app-frontend-cm.yaml
-  - ../../base/app-frontend-restaurant.yaml
+  - ../../base
 
 namespace: prod
 

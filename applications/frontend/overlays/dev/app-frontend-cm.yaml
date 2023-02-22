@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: frontend-app-cm
+  namespace: dev
+data:
+  APP_URL: "34.89.190.148"

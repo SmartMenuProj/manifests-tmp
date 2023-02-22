@@ -1,5 +1,5 @@
-apiVersion: argoproj.io/v1alpha1
-kind: Rollout
+apiVersion: apps/v1
+kind: Deployment
 metadata:
   labels:
     application: frontend-restaurant
@@ -12,13 +12,6 @@ spec:
     matchLabels:
       application: frontend-restaurant
       stage: 
-  strategy:
-    blueGreen:
-      activeService: frontend-restaurant-svc
-      autoPromotionEnabled: true
-      autoPromotionSeconds: 120
-      maxUnavailable: 1
-      scaleDownDelaySeconds: 10
   template:
     metadata:
       labels:

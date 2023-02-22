@@ -1,5 +1,5 @@
 resources:
-  - ../../base/
+  - ../../base
 
 namespace: dev
 
@@ -7,5 +7,5 @@ commonLabels:
   stage: dev
 
 replicas:
-- name: backend
-  count: 1
+  - name: backend
+    count: 1

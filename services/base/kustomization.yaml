@@ -1,0 +1,7 @@
+resources:
+  - backend-svc.yaml
+  - database-svc.yaml
+  - db-client-svc.yaml
+  - frontend-svc-admin.yaml
+  - frontend-svc-client.yaml
+  - frontend-svc-restaurant.yaml

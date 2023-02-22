@@ -1,5 +1,5 @@
-apiVersion: argoproj.io/v1alpha1
-kind: Rollout
+apiVersion: apps/v1
+kind: Deployment
 metadata:
   labels:
     application: frontend-admin
@@ -12,13 +12,6 @@ spec:
     matchLabels:
       application: frontend-admin
       stage: 
-  strategy:
-    blueGreen:
-      activeService: frontend-admin-svc
-      autoPromotionEnabled: true
-      autoPromotionSeconds: 30
-      maxUnavailable: 1
-      scaleDownDelaySeconds: 10
   template:
     metadata:
       labels:
