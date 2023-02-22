@@ -30,7 +30,7 @@ spec:
               valueFrom:
                 configMapKeyRef:
                   key: DATABASE_HOST
-                  name: db-cm
+                  name: db-configs
             - name: PMA_PORT
               valueFrom:
                 configMapKeyRef:
