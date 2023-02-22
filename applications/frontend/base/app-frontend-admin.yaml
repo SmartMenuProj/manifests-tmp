@@ -25,7 +25,7 @@ spec:
             configMapKeyRef:
               key: API_URL
               name: backend-app-cm
-        image: qrsmartmenu/frontend-admin:0.1.0-rc8
+        image: qrsmartmenu/frontend-admin
         imagePullPolicy: IfNotPresent
         name: frontend-admin
         ports:

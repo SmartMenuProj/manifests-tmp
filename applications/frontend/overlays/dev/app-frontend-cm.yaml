@@ -4,4 +4,4 @@ metadata:
   name: frontend-app-cm
   namespace: dev
 data:
-  APP_URL: "34.89.190.148"
+  APP_URL: "34.159.64.177"
