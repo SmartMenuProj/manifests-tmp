@@ -1,7 +1,0 @@
-apiVersion: v1
-kind: ConfigMap
-metadata:
-  name: "frontend-app-dev-cm"
-  namespace: "admins-dev"
-data:
-  APP_URL: "34.89.190.148"

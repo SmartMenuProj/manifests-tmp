@@ -1,0 +1,12 @@
+resources:
+  - ../../base/app-backend.yaml
+  - ../../base/app-backend-config-map.yaml
+
+namespace: dev
+
+commonLabels:
+  stage: dev
+
+replicas:
+- name: backend
+  count: 1

@@ -1,5 +1,0 @@
-resources: 
-  - app-backend.yaml
-
-commonLabels:
-  app: somename

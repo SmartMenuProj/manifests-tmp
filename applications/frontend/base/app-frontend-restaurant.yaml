@@ -1,0 +1,42 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Rollout
+metadata:
+  labels:
+    application: frontend-restaurant
+    stage: 
+  name: frontend-restaurant
+  namespace: 
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      application: frontend-restaurant
+      stage: 
+  strategy:
+    blueGreen:
+      activeService: frontend-restaurant-svc
+      autoPromotionEnabled: true
+      autoPromotionSeconds: 120
+      maxUnavailable: 1
+      scaleDownDelaySeconds: 10
+  template:
+    metadata:
+      labels:
+        application: frontend-restaurant
+        stage: 
+    spec:
+      containers:
+      - env:
+        - name: REACT_APP_BASE_URL
+          valueFrom:
+            configMapKeyRef:
+              key: API_URL
+              name: backend-app-cm
+        image: qrsmartmenu/frontend:0.1.0-rc41
+        imagePullPolicy: IfNotPresent
+        name: frontend-restaurant
+        ports:
+        - containerPort: 3000
+          name: front-rest-port
+          protocol: TCP
+      restartPolicy: Always

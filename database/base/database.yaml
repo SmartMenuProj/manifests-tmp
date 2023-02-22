@@ -1,0 +1,47 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: database
+  namespace: 
+  labels:
+    application: database
+    stage: 
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      application: database
+      stage: 
+  serviceName: app-db-svc
+  template:
+    metadata:
+      labels:
+        application: database
+        stage: 
+    spec:
+      containers:
+        - name: app-db
+          image: mysql:8.0.31
+          imagePullPolicy: IfNotPresent
+          ports:
+            - name: app-db-port
+              containerPort: 3306
+              protocol: TCP
+          env:
+            - name: MYSQL_ROOT_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  key: DATABASE_PASSWORD
+                  name: db-secrets
+            - name: MYSQL_DATABASE
+              valueFrom:
+                configMapKeyRef:
+                  key: DATABASE_NAME
+                  name: db-cm
+          volumeMounts:
+            - name: db-volume
+              mountPath: /var/lib/mysql
+      volumes:
+        - name: db-volume
+          persistentVolumeClaim:
+            claimName: database-pvc

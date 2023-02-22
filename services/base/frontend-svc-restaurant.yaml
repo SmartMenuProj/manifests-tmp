@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: frontend-restaurant-svc
+  namespace: 
+spec:
+  type: LoadBalancer
+  ports:
+    - port: 80
+      targetPort: front-rest-port
+      protocol: TCP
+  selector:
+    application: frontend-restaurant
+    stage: 

@@ -1,9 +1,0 @@
-apiVersion: v1
-kind: ConfigMap
-metadata:
-  name: "db-dev-cm"
-  namespace: "admins-dev"
-data: 
-  DATABASE_HOST: "app-db-dev-svc.admins-dev.svc.cluster.local"
-  DATABASE_PORT: "3306"
-  DATABASE_NAME: "qr_menu"

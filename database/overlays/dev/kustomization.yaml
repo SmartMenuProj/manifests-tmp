@@ -1,0 +1,16 @@
+resources:
+  - ../../base/database.yaml
+  - ../../base/db-client.yaml
+
+namespace: dev
+
+commonLabels:
+  stage: dev
+
+configMapGenerator:
+  - name: db-cm
+    namespace: dev
+    literals:
+    - DATABASE_HOST=app-db-svc.dev.svc.cluster.local
+    - DATABASE_PORT=3306
+    - DATABASE_NAME=qr_menu

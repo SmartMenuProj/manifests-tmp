@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: frontend-client-svc
+  namespace: 
+spec:
+  type: LoadBalancer
+  ports:
+    - port: 80
+      targetPort: front-cli-port
+      protocol: TCP
+  selector:
+    application: frontend-client
+    stage: 

@@ -1,0 +1,18 @@
+resources:
+  - ../../base/app-frontend-admin.yaml
+  - ../../base/app-frontend-client.yaml
+  - ../../base/app-frontend-cm.yaml
+  - ../../base/app-frontend-restaurant.yaml
+
+namespace: prod
+
+commonLabels:
+  stage: prod
+
+replicas:
+  - name: frontend-admin
+    count: 0
+  - name: frontend-restaurant
+    count: 0
+  - name: frontend-client
+    count: 0

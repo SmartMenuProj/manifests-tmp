@@ -1,0 +1,42 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Rollout
+metadata:
+  labels:
+    application: frontend-admin
+    stage: 
+  name: frontend-admin
+  namespace: 
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      application: frontend-admin
+      stage: 
+  strategy:
+    blueGreen:
+      activeService: frontend-admin-svc
+      autoPromotionEnabled: true
+      autoPromotionSeconds: 30
+      maxUnavailable: 1
+      scaleDownDelaySeconds: 10
+  template:
+    metadata:
+      labels:
+        application: frontend-admin
+        stage: 
+    spec:
+      containers:
+      - env:
+        - name: REACT_APP_BASE_URL
+          valueFrom:
+            configMapKeyRef:
+              key: API_URL
+              name: backend-app-cm
+        image: qrsmartmenu/frontend-admin:0.1.0-rc8
+        imagePullPolicy: IfNotPresent
+        name: frontend-admin
+        ports:
+        - containerPort: 3000
+          name: front-adm-port
+          protocol: TCP
+      restartPolicy: Always

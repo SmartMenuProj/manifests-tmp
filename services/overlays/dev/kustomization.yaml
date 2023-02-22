@@ -1,0 +1,12 @@
+resources:
+  - ../../base/backend-svc.yaml
+  - ../../base/database-svc.yaml
+  - ../../base/db-client-svc.yaml
+  - ../../base/frontend-svc-admin.yaml
+  - ../../base/frontend-svc-client.yaml
+  - ../../base/frontend-svc-restaurant.yaml
+
+namespace: dev
+
+commonLabels:
+  stage: dev
