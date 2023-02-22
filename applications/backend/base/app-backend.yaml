@@ -60,7 +60,7 @@ spec:
             secretKeyRef:
               key: DATABASE_PASSWORD
               name: db-secrets
-        image: qrsmartmenu/backend:0.1.0-rc1
+        image: qrsmartmenu/backend:0.1.0
         imagePullPolicy: IfNotPresent
         livenessProbe:
           failureThreshold: 2
