@@ -1,6 +1,7 @@
 resources:
   - ../../base
   - db-secrets.json
+  - db-pvc.yaml
   - db-cm.yaml
 
 namespace: dev
