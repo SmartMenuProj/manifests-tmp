@@ -37,7 +37,7 @@ spec:
               valueFrom:
                 configMapKeyRef:
                   key: DATABASE_NAME
-                  name: db-cm
+                  name: db-configs
           volumeMounts:
             - name: db-volume
               mountPath: /var/lib/mysql
