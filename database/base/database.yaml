@@ -28,11 +28,16 @@ spec:
               containerPort: 3306
               protocol: TCP
           env:
-            - name: MYSQL_ROOT_PASSWORD
+            - name: MYSQL_USER
               valueFrom:
                 secretKeyRef:
-                  key: DATABASE_PASSWORD
                   name: db-secrets
+                  key: DATABASE_USER
+            - name: MYSQL_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: db-secrets
+                  key: DATABASE_PASSWORD
             - name: MYSQL_DATABASE
               valueFrom:
                 configMapKeyRef:
