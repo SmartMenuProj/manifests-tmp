@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: db-cm
+  namespace: prod
+data:
+  DATABASE_HOST: app-db-svc.prod.svc.cluster.local
+  DATABASE_PORT: 3306
+  DATABASE_NAME: qr_menu

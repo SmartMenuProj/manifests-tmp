@@ -5,11 +5,3 @@ namespace: prod
 
 commonLabels:
   stage: prod
-
-configMapGenerator:
-  - name: db-cm
-    namespace: prod
-    literals:
-    - DATABASE_HOST=app-db-svc.prod.svc.cluster.local
-    - DATABASE_PORT=3306
-    - DATABASE_NAME=qr_menu
