@@ -1,6 +1,5 @@
 resources:
-  - ../../base/app-backend.yaml
-  - ../../base/app-backend-config-map.yaml
+  - ../../base/
 
 namespace: prod
 
